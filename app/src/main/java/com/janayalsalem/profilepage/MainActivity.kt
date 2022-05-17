@@ -1,5 +1,6 @@
 package com.janayalsalem.profilepage
 
+import android.graphics.Paint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -200,24 +201,18 @@ fun Content(data: List<String>) {
                         modifier = Modifier
                             .padding(7.dp)
                             .align(alignment = Alignment.CenterVertically)
+                            .width(190.dp)
                     ) {
                         Text(text = item, fontWeight = FontWeight.Bold)
                         Text(text = "A great Project", style = MaterialTheme.typography.body2)
                     }
 
-                    Column(
-                        modifier = Modifier
-                            .padding(7.dp)
-                            .align(alignment = Alignment.CenterVertically)
-                    ) {
-                        Text(text = "                           ", fontWeight = FontWeight.Bold)
-                        Text(text = "                            ", style = MaterialTheme.typography.body2)
-                    }
 
 
                         Button(onClick = { /*TODO*/ }, modifier = Modifier
                             .width(80.dp)
-                            .height(50.dp)) {
+                            .height(50.dp)
+                        ) {
                             Text("More Details", style = MaterialTheme.typography.button)
                         }
 
