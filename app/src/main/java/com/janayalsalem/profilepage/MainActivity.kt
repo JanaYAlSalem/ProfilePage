@@ -19,6 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.janayalsalem.profilepage.ui.theme.ProfilePageTheme
@@ -39,26 +40,34 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
 @Preview
 @Composable
 fun CardPage() {
     val buttonClickedState = remember {
         mutableStateOf(false)
     }
-    Surface( modifier = Modifier
-        .fillMaxWidth()
-        .fillMaxHeight()) {
-        Card(modifier = Modifier
-            .width(200.dp)
-            .height(390.dp)
-            .padding(12.dp),
+    Surface(
+        modifier = Modifier
+            .fillMaxWidth()
+            .fillMaxHeight()
+    ) {
+        Card(
+            modifier = Modifier
+                .width(200.dp)
+                .height(390.dp)
+                .padding(12.dp),
             shape = RoundedCornerShape(corner = CornerSize(15.dp)),
-            elevation = 4.dp) {
+            elevation = 4.dp
+        ) {
 
-            Column(modifier = Modifier.height(300.dp),
+            Column(
+                modifier = Modifier.height(300.dp),
                 verticalArrangement = Arrangement.Top,
-                horizontalAlignment = Alignment.CenterHorizontally) {
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
                 ProfileImage()
+                ProfileInfo()
 
 
             }
@@ -72,24 +81,57 @@ fun CardPage() {
 @Composable
 fun ProfileImage(modifier: Modifier = Modifier) {
 
-    Surface(modifier = modifier
-        .size(250.dp)
-        .padding(23.dp),
+    Surface(
+        modifier = modifier
+            .size(250.dp)
+            .padding(23.dp),
         shape = CircleShape,
         border = BorderStroke(0.5.dp, Color.LightGray),
         elevation = 4.dp,
-        color = MaterialTheme.colors.onSurface.copy(alpha = 0.5f)) {
+        color = MaterialTheme.colors.onSurface.copy(alpha = 0.5f)
+    ) {
 
-        Image(painter = painterResource(id = R.drawable.profile_image),
+        Image(
+            painter = painterResource(id = R.drawable.profile_image),
             contentDescription = "profile image",
             modifier = modifier.size(135.dp),
-            contentScale = ContentScale.Crop)
+            contentScale = ContentScale.Crop
+        )
 
     }
 
 }
 
+@Composable
+fun ProfileInfo() {
+
+    // full name
+    Text(
+        text = "Jana AlSalem",
+        style = MaterialTheme.typography.h4,
+        color = MaterialTheme.colors.primaryVariant,
+        textAlign = TextAlign.Center
+    )
+
+
+
+    Column(modifier = Modifier.padding(5.dp)) {
+        // line to divide
+        Divider()
+
+        // bio
+        Text(
+            text = "Android Developer",
+            modifier = Modifier.padding(10.dp),
+            style = MaterialTheme.typography.subtitle1
+        )
+
+        // location
+        Text(
+            text = "Riyadh,SA",
+            modifier = Modifier.padding(3.dp),
+        )
+
+
     }
-
 }
-
