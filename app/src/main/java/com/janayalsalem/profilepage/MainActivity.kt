@@ -201,7 +201,6 @@ fun Content(data: List<String>) {
                         modifier = Modifier
                             .padding(7.dp)
                             .align(alignment = Alignment.CenterVertically)
-                            .width(190.dp)
                     ) {
                         Text(text = item, fontWeight = FontWeight.Bold)
                         Text(text = "A great Project", style = MaterialTheme.typography.body2)
@@ -209,12 +208,15 @@ fun Content(data: List<String>) {
 
 
 
-                        Button(onClick = { /*TODO*/ }, modifier = Modifier
-                            .width(80.dp)
-                            .height(50.dp)
+                    Row(Modifier.fillMaxWidth(),verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.End ) {
+                        Button(
+                            onClick = { /*TODO*/ }, modifier = Modifier
+                                .width(80.dp)
+                                .height(50.dp)
                         ) {
                             Text("More Details", style = MaterialTheme.typography.button)
                         }
+                    }
 
 
                 }
