@@ -58,6 +58,7 @@ fun CardPage() {
             Column(modifier = Modifier.height(300.dp),
                 verticalArrangement = Arrangement.Top,
                 horizontalAlignment = Alignment.CenterHorizontally) {
+                ProfileImage()
 
 
             }
@@ -68,4 +69,27 @@ fun CardPage() {
 
 }
 
+@Composable
+fun ProfileImage(modifier: Modifier = Modifier) {
+
+    Surface(modifier = modifier
+        .size(250.dp)
+        .padding(23.dp),
+        shape = CircleShape,
+        border = BorderStroke(0.5.dp, Color.LightGray),
+        elevation = 4.dp,
+        color = MaterialTheme.colors.onSurface.copy(alpha = 0.5f)) {
+
+        Image(painter = painterResource(id = R.drawable.profile_image),
+            contentDescription = "profile image",
+            modifier = modifier.size(135.dp),
+            contentScale = ContentScale.Crop)
+
+    }
+
+}
+
+    }
+
+}
 
